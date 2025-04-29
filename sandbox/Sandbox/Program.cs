@@ -13,5 +13,7 @@ class Program
         // Console.WriteLine($"My name is {lastName}, {firstName} {lastName}");
 
         // Here is a fun comment.
+
+        // This is a second comment.
     }
 }
