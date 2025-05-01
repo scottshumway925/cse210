@@ -15,5 +15,17 @@ class Program
         // Here is a fun comment.
 
         // This is a second comment.
+
+        List<int> myNumbers = new List<int>();
+        myNumbers.Add(1);
+        myNumbers.Add(72);
+        myNumbers.Add(37);
+
+        foreach (int i in myNumbers) {
+            Console.WriteLine(i);
+        }
+
+
+
     }
 }
