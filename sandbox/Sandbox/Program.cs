@@ -1,31 +1,40 @@
 using System;
 
+class Circle 
+{
+    private double _radius;
+
+    public void SetRadius(double radius) {
+        _radius = radius;
+    }
+
+    public double GetRadius() {
+        return _radius;
+    }
+
+    public double GetArea() {
+        return Math.PI * _radius * _radius;
+    }
+}
+
+
+
 class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Sandbox World!");
 
-        // Console.Write("Please Input Your First Name: ");
-        // string firstName = Console.ReadLine();
-        // Console.Write("Please Input Your Last Name: ");
-        // string lastName = Console.ReadLine();
-        // Console.WriteLine($"My name is {lastName}, {firstName} {lastName}");
+        Circle myCircle = new Circle();
+        Circle myCircle2 = new Circle(); 
 
-        // Here is a fun comment.
+        myCircle.SetRadius(10);
+        myCircle2.SetRadius(20);
 
-        // This is a second comment.
-
-        List<int> myNumbers = new List<int>();
-        myNumbers.Add(1);
-        myNumbers.Add(72);
-        myNumbers.Add(37);
-
-        foreach (int i in myNumbers) {
-            Console.WriteLine(i);
-        }
-
-
-
+        Console.WriteLine($"{myCircle.GetRadius()}");
+        Console.WriteLine($"{myCircle2.GetRadius()}");
+        
+        Console.WriteLine($"{myCircle.GetArea()}");
+        Console.WriteLine($"{myCircle2.GetArea()}");
     }
 }

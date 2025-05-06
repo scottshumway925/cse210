@@ -1,0 +1,14 @@
+Abstraction: To simplify
+
+Encapsulation: To gather/bundle
+
+Inheritance: to inherit from parent/base
+
+
+
+
+Object Oriented Programming (OOP)
+Classes and Objects
+
+Classes are like recipes, objects, or instances of a class, are like cakes.
+Objects combine variables and functions into one datatype.
