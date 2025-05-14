@@ -12,3 +12,22 @@ Classes and Objects
 
 Classes are like recipes, objects, or instances of a class, are like cakes.
 Objects combine variables and functions into one datatype.
+
+
+
+Nouns for journal program:
+- journal
+- journalentry
+- menu
+- questions
+- program 
+
+Journal (save, load, display) : Entries
+Entry (create, display) : date, prompt, response
+
+The create method is in the entry class because it simplifies the creation process. Doing it this way simplifies
+the code by making it so that all the variables needed to create an entry are local. 
+
+JournalEntry myJournalEntry = new JournalEntry();
+myJournalEntry.Create();
+myJournal.entries.add(myJournalEntry);
