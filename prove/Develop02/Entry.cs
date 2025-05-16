@@ -9,9 +9,19 @@ public class Entry
     {
         GetPrompt();
         GetDate();
-        Console.WriteLine($"{_prompt}: ");
+        Console.WriteLine($"{_prompt}");
         string tempEntry = Console.ReadLine();
-        _textEntry = $"\n{_date}#{_prompt}#\n{tempEntry}";
+        _textEntry = $"{_date}#{_prompt}#{tempEntry}";
+
+        return _textEntry;
+    }
+
+    public string CreateEntryWithData(string date, string prompt, string text)
+    {
+        _date = date;
+        _prompt = prompt;
+        string tempEntry = text;
+        _textEntry = $"{_date}#{_prompt}#{tempEntry}";
 
         return _textEntry;
     }
@@ -30,22 +40,22 @@ public class Entry
         switch (randomNumber)
         {
             case 0:
-                setPrompt = "Prompt 1";
+                setPrompt = "How have you seen the hand of the Lord in your life today?";
                 break;
             case 1:
-                setPrompt = "Prompt 2";
+                setPrompt = "What is one thing you learned in your scripture study today?";
                 break;
             case 2:
-                setPrompt = "Prompt 3";
+                setPrompt = "What is one way you felt the spirit today?";
                 break;
             case 3:
-                setPrompt = "Prompt 4";
+                setPrompt = "How did the Lord bless other people through your efforts today?";
                 break;
             case 4:
-                setPrompt = "Prompt 5";
+                setPrompt = "What is one fun thing that you did today?";
                 break;
             case 5:
-                setPrompt = "Prompt 6";
+                setPrompt = "What did you do today to improve yourself?";
                 break;
             default:
                 setPrompt = "Broken";

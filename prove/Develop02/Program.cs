@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 class Program
 {
@@ -6,13 +7,14 @@ class Program
     {
         Journal journal = new Journal();
         int MenuSelection = 0;
-        while (MenuSelection != 5)
+        while (MenuSelection != 6)
         {
             // Menu Text
-            Console.WriteLine("\nJournal Menu\n1. Display Journal\n2. Write Entry\n3. Load journal from file\n4. Save journal to file\n5. Quit");
+            Console.WriteLine("\nJournal Menu\n1. Display Journal\n2. Write Entry\n3. Set filename\n4. Load journal from file\n5. Save journal to file\n6. Quit");
             Console.Write("\nPlease enter your menu choice: ");
             MenuSelection = int.Parse(Console.ReadLine());
 
+            // Switch case designed to determine what the user wants to do.
             switch (MenuSelection)
             {
                 case 1:
@@ -28,15 +30,42 @@ class Program
                     break;
 
                 case 3:
-                    // This case handles loading the journal from a file.
+                    // This case handles getting the filename to load to and save from. 
+                    journal.SetFileName();
                     break;
+
                 case 4:
-                    // This case handles saving the journal to a file.
+                    // This case handles loading the journal from a file.
+                    try
+                    {
+                        journal.LoadFile(journal.GetFileName());
+                    }
+                    catch (Exception) // Sets the filename if it's not already set.
+                    {
+                        journal.SetFileName();
+                        journal.LoadFile(journal.GetFileName());
+                    }
                     break;
+
                 case 5:
+                    // This case handles saving the journal to a file.
+                    try
+                    {
+                        journal.SaveFile(journal.GetFileName());
+                    }
+                    catch (Exception) // Sets the filename if it's not already set.
+                    {
+                        journal.SetFileName();
+                        journal.SaveFile(journal.GetFileName());
+                    }
+
+                    break;
+
+                case 6:
                     // This case is the exit case.
                     break;
                 default:
+                    // Error handling
                     Console.WriteLine("Incorrect entry");
                     break;
             }
