@@ -4,6 +4,7 @@ class Program
 {
     private static void MenuSelection()
     {
+        Journal journal = new Journal();
         int MenuSelection = 0;
         while (MenuSelection != 5)
         {
@@ -15,18 +16,25 @@ class Program
             switch (MenuSelection)
             {
                 case 1:
-                    Console.WriteLine("Option 1");
+                    // This case displays each journal entry in the journal.
+                    journal.DisplayJournal();
                     break;
+
                 case 2:
-                    Console.WriteLine("Option 2");
+                    // This case handles creating a new entry and adding it to the Journal.
+                    Entry journalEntry = new Entry();
+                    string entryText = journalEntry.CreateEntryText();
+                    journal.AddEntry(entryText);
                     break;
+
                 case 3:
-                    Console.WriteLine("Option 3");
+                    // This case handles loading the journal from a file.
                     break;
                 case 4:
-                    Console.WriteLine("Option 4");
+                    // This case handles saving the journal to a file.
                     break;
                 case 5:
+                    // This case is the exit case.
                     break;
                 default:
                     Console.WriteLine("Incorrect entry");
