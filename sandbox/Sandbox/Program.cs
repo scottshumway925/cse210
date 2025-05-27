@@ -4,12 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Sandbox World!");
-
-        Circle myCircle = new Circle();
+        Circle myCircle = new Circle(10);
         Circle myCircle2 = new Circle(); 
 
-        myCircle.SetRadius(10);
+        // myCircle.SetRadius(10);
         myCircle2.SetRadius(20);
 
         Console.WriteLine($"{myCircle.GetRadius()}");
@@ -22,6 +20,5 @@ class Program
         myCylinder.SetCircle(myCircle);
         myCylinder.SetHeight(10);
         Console.WriteLine($"{myCylinder.GetVolume()}");
-
     }
 }
