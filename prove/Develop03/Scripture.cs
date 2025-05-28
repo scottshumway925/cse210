@@ -42,29 +42,29 @@ public class Scripture
 
     public bool HideWords()
     {
-        try
+        if (_indexes.Count >= 3)
         {
             for (int i = 0; i < 3; i++)
             {
-                int rNumber = _randomGenerator.Next(0, _indexes.Count - 1);
+                int rNumber = _randomGenerator.Next(0, _indexes.Count);
                 _text[_indexes[rNumber]].HideWord();
                 _indexes.RemoveAt(rNumber);
             }
-            return false;
         }
-        catch (Exception)
+        else if (_indexes.Count > 0)
         {
-            if (_indexes.Count > 0)
+            for (int i = 0; i < _indexes.Count(); i++)
             {
-                int rNumber = _randomGenerator.Next(0, _indexes.Count - 1);
+                int rNumber = _randomGenerator.Next(0, _indexes.Count);
                 _text[_indexes[rNumber]].HideWord();
                 _indexes.RemoveAt(rNumber);
-                return false;
-            }
-            else
-            {
-                return true;
             }
         }
+        else
+        {
+            return true;
+        }
+        
+        return false;
     }
 }
