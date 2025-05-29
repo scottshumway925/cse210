@@ -53,7 +53,7 @@ public class Scripture
         }
         else if (_indexes.Count > 0)
         {
-            for (int i = 0; i < _indexes.Count(); i++)
+            for (int i = 0; i < _indexes.Count() + 1; i++)
             {
                 int rNumber = _randomGenerator.Next(0, _indexes.Count);
                 _text[_indexes[rNumber]].HideWord();
