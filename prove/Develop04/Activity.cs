@@ -4,7 +4,7 @@ class Activity
 {
     private string _activityType;
     private string _description;
-    List<string> _animationStrings = new List<string>() { "-", "\\", "|", "/", "-", "\\", "|", "/", "-" };
+    private List<string> _animationStrings = new List<string>() { "-", "\\", "|", "/", "-", "\\", "|", "/", "-" };
 
     public Activity(string activityType, string description)
     {
