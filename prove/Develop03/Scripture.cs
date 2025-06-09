@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 public class Scripture
 {
     private List<Word> _text = new List<Word>();
-    Reference _reference;
+    private Reference _reference;
     private List<int> _indexes = new List<int>();
     private Random _randomGenerator = new Random();
 
