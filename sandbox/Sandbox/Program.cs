@@ -4,21 +4,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        Circle myCircle = new Circle(10);
-        Circle myCircle2 = new Circle(); 
+        DateTime currentTime = DateTime.Now;
+        DateTime endTime = currentTime.AddSeconds(10);
+        int sleepTime = 250;
+        string animationString = "(^o^)(-_-)";
 
-        // myCircle.SetRadius(10);
-        myCircle2.SetRadius(20);
-
-        Console.WriteLine($"{myCircle.GetRadius()}");
-        Console.WriteLine($"{myCircle2.GetRadius()}");
-        
-        Console.WriteLine($"{myCircle.GetArea()}");
-        Console.WriteLine($"{myCircle2.GetArea()}");
-
-        Cylidner myCylinder = new Cylidner();
-        myCylinder.SetCircle(myCircle);
-        myCylinder.SetHeight(10);
-        Console.WriteLine($"{myCylinder.GetVolume()}");
+        while (DateTime.Now < endTime)
+        {
+            Console.Write(animationString[0..5]);
+            Thread.Sleep(sleepTime);
+            Console.Write("\b\b\b\b\b");
+            Console.Write(animationString[5..]);
+            Thread.Sleep(sleepTime);
+            Console.Write("\b\b\b\b\b");
+        }
     }
 }

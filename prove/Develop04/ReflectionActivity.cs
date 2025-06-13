@@ -5,7 +5,7 @@ class ReflectionActivity : Activity
 
     public ReflectionActivity(string activityType, string description) : base(activityType, description)
     {
-
+        
     }
 
     public int RunActivity(int overallTime)
