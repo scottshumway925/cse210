@@ -22,10 +22,10 @@ class ChecklistGoal : BaseGoal
         _bonusPoints = int.Parse(Console.ReadLine());
     }
 
-    public override void DisplayGoal()
-    {
-        Console.WriteLine("I'm Working Check");
-    }
+    // public override void DisplayGoal()
+    // {
+    //     Console.WriteLine("I'm Working Check");
+    // }
 
     public override int RecordGoal()
     {

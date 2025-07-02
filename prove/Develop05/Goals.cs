@@ -17,6 +17,7 @@ class Goals
 
     public BaseGoal CreateGoal()
     {
+        Console.Clear();
         Console.WriteLine("The Types of Goals are:\n  1. Simple Goal\n  2. Eternal Goal\n  3. Checklist Goal");
         int chosenType = int.Parse(Console.ReadLine());
         BaseGoal constructedGoal;
@@ -54,9 +55,10 @@ class Goals
 
     public void DisplayGoalList()
     {
-        foreach (BaseGoal goal in _goalList)
+        for (int i = 0; i < _goalList.Count; i++)
         {
-            goal.DisplayGoal();
+            Console.Write((i + 1) + ". ");
+            _goalList[i].DisplayGoal();
         }
     }
 

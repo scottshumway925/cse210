@@ -13,9 +13,9 @@ class Program
     {
         int input;
         Goals goalList = new Goals();
+        Console.Clear();
         do
         {
-            Console.Clear();
             Console.WriteLine($"Your total amount of points is: {goalList.DsiplayPoints()}");
             Console.Write("\nMenu Options:\n  1. Create New Goal\n  2. List Goals\n  3. Save Goals\n  4. Load Goals\n  5. Record Event\n  6. Quit\nSelect a choice from the menu: ");
             input = int.Parse(Console.ReadLine());

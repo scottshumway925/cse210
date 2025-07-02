@@ -16,8 +16,8 @@ class EternalGoal : BaseGoal
     //     throw new NotImplementedException();
     // }
 
-    public override void DisplayGoal()
-    {
-        Console.WriteLine("I'm Working Eternal");
-    }
+    // public override void DisplayGoal()
+    // {
+    //     Console.WriteLine("I'm Working Eternal");
+    // }
 }

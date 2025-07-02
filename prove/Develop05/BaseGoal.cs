@@ -54,7 +54,10 @@ abstract class BaseGoal
         return _goalName;
     }
 
-    public abstract void DisplayGoal();
+    public void DisplayGoal()
+    {
+        Console.WriteLine($"Goal: {_goalName} -- {_goalDescription} -- Current Completions {_currentCompletions}/{_numberOfMaxCompletions}");
+    }
 
     public virtual int RecordGoal()
     {

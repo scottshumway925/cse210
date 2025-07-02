@@ -16,8 +16,8 @@ class SimpleGoal : BaseGoal
 
     }
 
-    public override void DisplayGoal()
-    {
-        Console.WriteLine("I'm working Base");
-    }
+    // public override void DisplayGoal()
+    // {
+    //     Console.WriteLine("I'm working Base");
+    // }
 }
