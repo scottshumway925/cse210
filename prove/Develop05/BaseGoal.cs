@@ -1,4 +1,4 @@
-abstract class BaseGoal
+class BaseGoal
 {
     private string _goalType;
     private int _pointValue;
@@ -21,6 +21,26 @@ abstract class BaseGoal
     public BaseGoal()
     {
         
+    }
+
+    public Double GetMaxCompletions()
+    {
+        return _numberOfMaxCompletions;
+    }
+
+    public void SetPointValue(int value)
+    {
+        _pointValue = value;
+    }
+
+    public bool GetIsComplete()
+    {
+        return _isComplete;
+    }
+
+    public int GetPointValue()
+    {
+        return _pointValue;
     }
 
     public virtual void CreatingData(double numberOfMaxCompletions = 0)
@@ -49,18 +69,35 @@ abstract class BaseGoal
         Console.WriteLine($"{_goalType}, {_goalName}, {_numberOfMaxCompletions}");
     }
 
-    public string GetSaveInfo()
+    public virtual string GetSaveInfo()
     {
-        return _goalName;
+        return $"{_goalType}:{_pointValue}:{_goalName}:{_goalDescription}:{_isComplete}:{_currentCompletions}:{_numberOfMaxCompletions}";
     }
 
     public void DisplayGoal()
     {
-        Console.WriteLine($"Goal: {_goalName} -- {_goalDescription} -- Current Completions {_currentCompletions}/{_numberOfMaxCompletions}");
+        Console.WriteLine($"{_goalName} -- {_goalDescription} -- Current Completions {_currentCompletions}/{_numberOfMaxCompletions}");
     }
 
     public virtual int RecordGoal()
     {
-        return 0;
+        if (!_isComplete)
+        {
+            _currentCompletions += 1;
+            if (_currentCompletions >= _numberOfMaxCompletions)
+            {
+                _isComplete = true;
+                return _pointValue;
+            }
+            else
+            {
+                return _pointValue;
+            }
+        }
+        else
+        {
+            Console.WriteLine("This goal is already complete!");
+            return 0;
+        }
     }
 }

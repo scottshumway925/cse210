@@ -6,18 +6,8 @@ class SimpleGoal : BaseGoal
 
     }
 
-    // public override void CreateGoal()
-    // {
-
-    // }
-
     public SimpleGoal()
     {
 
     }
-
-    // public override void DisplayGoal()
-    // {
-    //     Console.WriteLine("I'm working Base");
-    // }
 }

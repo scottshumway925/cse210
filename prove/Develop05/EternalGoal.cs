@@ -10,14 +10,4 @@ class EternalGoal : BaseGoal
     {
         
     }
-
-    // public override EternalGoal CreateGoal()
-    // {
-    //     throw new NotImplementedException();
-    // }
-
-    // public override void DisplayGoal()
-    // {
-    //     Console.WriteLine("I'm Working Eternal");
-    // }
 }

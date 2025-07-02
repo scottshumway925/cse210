@@ -50,7 +50,10 @@ class Goals
 
     public void GetGoalData()
     {
-
+        foreach (BaseGoal goal in _goalList)
+        {
+            Console.WriteLine(goal.GetSaveInfo());
+        }
     }
 
     public void DisplayGoalList()
@@ -62,8 +65,17 @@ class Goals
         }
     }
 
-    public int DsiplayPoints()
+    public int DisplayPoints()
     {
         return _totalPoints;
+    }
+
+    public void RecordEvent()
+    {
+        this.DisplayGoalList();
+        Console.WriteLine("Which Goal would you like to record: ");
+        BaseGoal choice = _goalList[int.Parse(Console.ReadLine()) - 1];
+        int pointIncrease = choice.RecordGoal();
+        _totalPoints += pointIncrease;
     }
 }

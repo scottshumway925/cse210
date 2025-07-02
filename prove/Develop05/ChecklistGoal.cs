@@ -12,7 +12,12 @@ class ChecklistGoal : BaseGoal
 
     public ChecklistGoal()
     {
-        
+
+    }
+
+    public override string GetSaveInfo()
+    {
+        return base.GetSaveInfo() + $":{_bonusPoints}";
     }
 
     public override void CreatingData(Double numberOfMaxCompletions = 0)
@@ -22,13 +27,19 @@ class ChecklistGoal : BaseGoal
         _bonusPoints = int.Parse(Console.ReadLine());
     }
 
-    // public override void DisplayGoal()
-    // {
-    //     Console.WriteLine("I'm Working Check");
-    // }
-
     public override int RecordGoal()
     {
-        return 10;
+        base.RecordGoal();
+        if (base.GetIsComplete())
+        {
+            int tempPoints = _bonusPoints + base.GetPointValue();
+            _bonusPoints = 0;
+            base.SetPointValue(0);
+            return tempPoints;
+        }
+        else
+        {
+            return base.GetPointValue();
+        }
     }
 }

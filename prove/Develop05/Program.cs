@@ -16,7 +16,7 @@ class Program
         Console.Clear();
         do
         {
-            Console.WriteLine($"Your total amount of points is: {goalList.DsiplayPoints()}");
+            Console.WriteLine($"Your total amount of points is: {goalList.DisplayPoints()}");
             Console.Write("\nMenu Options:\n  1. Create New Goal\n  2. List Goals\n  3. Save Goals\n  4. Load Goals\n  5. Record Event\n  6. Quit\nSelect a choice from the menu: ");
             input = int.Parse(Console.ReadLine());
 
@@ -30,13 +30,13 @@ class Program
                     goalList.DisplayGoalList();
                     break;
                 case 3:
-                    Console.WriteLine("Case 3");
+                    goalList.GetGoalData();
                     break;
                 case 4:
                     Console.WriteLine("Case 4");
                     break;
                 case 5:
-                    Console.WriteLine("Case 5");
+                    goalList.RecordEvent();
                     break;
                 case 6:
                     Console.WriteLine("Thank you for using the Goal Checklist!");
