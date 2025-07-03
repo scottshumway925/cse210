@@ -50,6 +50,8 @@ class Goals
                 constructedGoal = null;
                 break;
         }
+        Console.WriteLine("Goal Successfully Created -- Press enter to continue");
+        Console.ReadLine();
         return constructedGoal;
     }
 
