@@ -10,4 +10,17 @@ class SimpleGoal : BaseGoal
     {
 
     }
+
+    public override int addBonusPoints()
+    {
+        if (base.GetIsComplete())
+        {
+            return base.GetPointValue();
+        }
+        else
+        {
+            return 0;
+        }
+        
+    }
 }

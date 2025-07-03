@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.IO;
 
 class Goals
 {
@@ -12,7 +13,16 @@ class Goals
 
     public void SaveGoals()
     {
-
+        Console.WriteLine("What is the file you would like to save to? ");
+        string filename = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach (BaseGoal goal in _goalList)
+            {
+                string saveData = goal.GetSaveInfo();
+                outputFile.WriteLine(saveData);
+            }            
+        }
     }
 
     public BaseGoal CreateGoal()
@@ -50,9 +60,32 @@ class Goals
 
     public void GetGoalData()
     {
-        foreach (BaseGoal goal in _goalList)
+        Console.Write("Please enter the file to extract data from: ");
+        string filename = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(filename);
+        foreach (string line in lines)
         {
-            Console.WriteLine(goal.GetSaveInfo());
+            string[] saveData = line.Split(":");
+            BaseGoal newGoal;
+            switch (saveData[0])
+            {
+                case "SimpleGoal":
+                    newGoal = new SimpleGoal(saveData[0], int.Parse(saveData[1]), saveData[2], saveData[3], bool.Parse(saveData[4]), int.Parse(saveData[5]));
+                    break;
+                case "EternalGoal":
+                    newGoal = new EternalGoal(saveData[0], int.Parse(saveData[1]), saveData[2], saveData[3], bool.Parse(saveData[4]), int.Parse(saveData[5]));
+                    break;
+                case "ChecklistGoal":
+                    newGoal = new ChecklistGoal(saveData[0], int.Parse(saveData[1]), saveData[2], saveData[3], bool.Parse(saveData[4]), int.Parse(saveData[5]), int.Parse(saveData[7]), Double.Parse(saveData[6]));
+                    break;
+                default:
+                    Console.WriteLine("Data is no good");
+                    newGoal = null;
+                    break;
+            }
+
+            _goalList.Add(newGoal);
+            _totalPoints += newGoal.addBonusPoints();
         }
     }
 

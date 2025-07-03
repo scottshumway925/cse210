@@ -3,6 +3,7 @@ using System.Runtime.Versioning;
 class ChecklistGoal : BaseGoal
 {
     private int _bonusPoints;
+    private bool _bonusAdded = false;
 
     public ChecklistGoal(string goalType, int pointValue, string goalName, string goalDescription, bool isComplete, int currentCompletions, int bonusPoints, double numberOfMaxCompletions)
      : base(goalType, pointValue, goalName, goalDescription, isComplete, currentCompletions, numberOfMaxCompletions)
@@ -32,14 +33,29 @@ class ChecklistGoal : BaseGoal
         base.RecordGoal();
         if (base.GetIsComplete())
         {
-            int tempPoints = _bonusPoints + base.GetPointValue();
-            _bonusPoints = 0;
-            base.SetPointValue(0);
-            return tempPoints;
+            if (_bonusAdded)
+            {
+                return 0;
+            }
+            else
+            {
+                _bonusAdded = true;
+                return base.GetPointValue() + _bonusPoints;
+            }
         }
         else
         {
             return base.GetPointValue();
         }
+    }
+
+    public override int addBonusPoints()
+    {
+        int totalPoints = base.GetPointValue() * base.GetNumberOfCompletions();
+        if (this.GetIsComplete())
+        {
+            totalPoints += _bonusPoints;
+        }
+        return totalPoints;
     }
 }

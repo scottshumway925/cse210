@@ -1,4 +1,6 @@
-class BaseGoal
+using System.Diagnostics;
+
+abstract class BaseGoal
 {
     private string _goalType;
     private int _pointValue;
@@ -16,11 +18,12 @@ class BaseGoal
         _goalDescription = goalDescription;
         _isComplete = isComplete;
         _currentCompletions = currentCompletions;
+        _numberOfMaxCompletions = numberOfMaxCompletions;
     }
 
     public BaseGoal()
     {
-        
+
     }
 
     public Double GetMaxCompletions()
@@ -38,9 +41,19 @@ class BaseGoal
         return _isComplete;
     }
 
+    protected void SetIsComplete(bool switchCase)
+    {
+        _isComplete = switchCase;
+    }
+
     public int GetPointValue()
     {
         return _pointValue;
+    }
+
+    public int GetNumberOfCompletions()
+    {
+        return _currentCompletions;
     }
 
     public virtual void CreatingData(double numberOfMaxCompletions = 0)
@@ -100,4 +113,6 @@ class BaseGoal
             return 0;
         }
     }
+
+    public abstract int addBonusPoints();
 }
