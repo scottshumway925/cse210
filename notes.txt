@@ -74,3 +74,17 @@ public void ReadFromFile(string filename) {
         this.AddEntry(entry);
     }
 }
+
+
+
+- Research the company and role
+- Practice in the mirror
+- Look up and practice common interview questions
+- Dress for the job
+- Prepare a list of questions for them. Like, "At this company what separates a great employee from a good employee."
+- Follow up with a thank you email
+- Review your own resume so that you can leverage the points you've made on that during the interview.
+- If you answer weaknesses seriously, frame it as not a real weakness, but something you are working on, and what your goals are for overcoming it. Also have some stories of work experience you have
+- Ask yourself why you really want the job
+- Prepare stories that could answer a variety of questions
+- Set yourself apart from others

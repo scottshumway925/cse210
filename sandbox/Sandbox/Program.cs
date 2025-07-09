@@ -2,21 +2,23 @@ using System;
 
 class Program
 {
+    static void TestByRef(int x, ref string name)
+    {
+        x++;
+        name += "Betty";
+
+        Console.WriteLine($"In Test: {x}, {name}");
+    }
+
     static void Main(string[] args)
     {
-        DateTime currentTime = DateTime.Now;
-        DateTime endTime = currentTime.AddSeconds(10);
-        int sleepTime = 250;
-        string animationString = "(^o^)(-_-)";
+        int x = 10;
+        string name = "Bob ";
 
-        while (DateTime.Now < endTime)
-        {
-            Console.Write(animationString[0..5]);
-            Thread.Sleep(sleepTime);
-            Console.Write("\b\b\b\b\b");
-            Console.Write(animationString[5..]);
-            Thread.Sleep(sleepTime);
-            Console.Write("\b\b\b\b\b");
-        }
+        TestByRef(x, ref name);
+
+        Console.WriteLine($"In Main: {x}, {name}");
+
+
     }
 }
