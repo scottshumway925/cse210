@@ -1,24 +1,30 @@
 class Inventory
 {
-    private List<Item> inventoryItems;
-  
+    private List<Item> _inventoryItems = new List<Item>();
+    private int _currentMoney;
+
+    public int GetCurrentMoney()
+    {
+        return _currentMoney;
+    }
+
     public List<Item> GetInventory()
     {
-        return inventoryItems;
+        return _inventoryItems;
     }
 
     public void AddItem(Item item)
     {
-        inventoryItems.Add(item);
+        _inventoryItems.Add(item);
     }
 
     public void RemoveItem(Item item)
     {
-        foreach (Item inventoryItem in inventoryItems)
+        foreach (Item inventoryItem in _inventoryItems)
         {
             if (inventoryItem.GetName() == item.GetName())
             {
-                inventoryItems.Remove(inventoryItem);
+                _inventoryItems.Remove(inventoryItem);
                 return;
             }
         }
