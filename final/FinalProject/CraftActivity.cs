@@ -8,8 +8,17 @@ class CraftActivity : Activity
 
     public override void RunActivity(Inventory inventory, GameDay gameDay)
     {
-        // Item item = new ConsumableItem();
-        // inventory.AddItem(item);
-        gameDay.DecrementTimeInDay(base.GetActionCost());
+        base.DisplayInformation();
+        Console.WriteLine("Would you like to proceed with foraging?");
+        Console.WriteLine("Press ENTER to continue or type 0 to exit");
+        string performActivity = (Console.ReadLine());
+        switch (performActivity)
+        {
+            case "":
+                gameDay.DecrementTimeInDay(base.GetActionCost());
+                break;
+            default:
+                break;
+        }
     }
 }

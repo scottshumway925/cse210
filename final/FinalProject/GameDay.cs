@@ -16,6 +16,11 @@ class GameDay
         return _timeLeftInDay;
     }
 
+    public float GetRequiredMoney()
+    {
+        return _requiredMoney;
+    }
+
     public void StartNextDay()
     {
         _timeLeftInDay = 10;

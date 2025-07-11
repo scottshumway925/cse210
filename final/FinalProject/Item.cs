@@ -24,6 +24,11 @@ abstract class Item
         return _itemName;
     }
 
+    public int GetSellPrice()
+    {
+        return _sellPrice;
+    }
+
     public virtual int ApplyEffects()
     {
         return 0;

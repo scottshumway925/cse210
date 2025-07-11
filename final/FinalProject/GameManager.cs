@@ -7,16 +7,22 @@ class GameManager
 
     public void RunGame()
     {
-        _gameDay.DisplayDayStart();
-        while (_gameDay.GetTimeLeftInDay() >= 0)
-            RunActivities();
+        do
+        {
+            _gameDay.DisplayDayStart();
+            while (_gameDay.GetTimeLeftInDay() > 0)
+                RunActivities();
+            _gameDay.StartNextDay();
+        } while (_gameDay.GetRequiredMoney() <= _inventory.GetCurrentMoney());      
     }
 
     public void RunActivities()
     {
+        Console.Clear();
         Console.WriteLine($"You have {_gameDay.GetTimeLeftInDay()} actions left in this day");
-        Console.WriteLine("Here are the available avtions for you to take:\n  1. Forage for materials\n  2. Sell and item\n  3. Craft an item");
-        Console.WriteLine("Please enter a nuber representing the activity you would like to do.");
+        Console.WriteLine($"You currently have {_inventory.GetCurrentMoney()}/{_gameDay.GetRequiredMoney()} Gold for the day");
+        Console.WriteLine("Here are the available avtions for you to take:\n  1. Forage for materials\n  2. Sell and item\n  3. Craft an item\n  4. View Inventory");
+        Console.Write("Please enter a number representing the activity you would like to do: ");
         int chosenActivity = int.Parse(Console.ReadLine());
         Activity _activity;
 
@@ -31,7 +37,14 @@ class GameManager
             case 3:
                 _activity = new CraftActivity("Craft an Item", "Description", 2);
                 break;
+            case 4:
+                _activity = null;
+                _inventory.DisplayContents();
+                Console.WriteLine("Press Enter to continue...");
+                Console.ReadLine();
+                break;
             default:
+                Console.WriteLine("Please enter a valid option ex. 1, 2, 3...");
                 _activity = null;
                 break;
         }
@@ -39,10 +52,6 @@ class GameManager
         if (_activity != null)
         {
             _activity.RunActivity(_inventory, _gameDay);
-        }
-        else
-        {
-            Console.WriteLine("Please enter a valid option (1, 2, 3)");
         }
     }
 }

@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 abstract class Activity
 {
     private string _activityName;
@@ -18,7 +20,18 @@ abstract class Activity
 
     public void DisplayInformation()
     {
+        Console.WriteLine($"\n{_activityName} --- {_activityDescription} : Cost - {_actionCost}");
+    }
 
+    protected void DisplayLoadingCharacters()
+    {
+        Console.WriteLine();
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write(". ");
+            Thread.Sleep(250);
+        }
+        Console.WriteLine();
     }
 
     public abstract void RunActivity(Inventory inventory, GameDay gameDay);
