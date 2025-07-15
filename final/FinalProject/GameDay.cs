@@ -29,12 +29,21 @@ class GameDay
             gameOver = true;
         }
         _timeLeftInDay = 10;
-        _dayCount++;
         inventory.SubtractFromCurrentMoney(_requiredMoney);
         float requiredMoneyCalculation = _requiredMoney * 1.3f;
         _requiredMoney = (int)Math.Round(requiredMoneyCalculation);
-        Console.WriteLine("Press enter to start the next day or exit.");
+        Console.Clear();
+        if (gameOver)
+        {
+            Console.WriteLine($"You have successfully completed day {_dayCount}, leaving you with {inventory.GetCurrentMoney()} gold leftover.");
+        }
+        else
+        {
+            Console.WriteLine($"You lost on day {_dayCount}.");
+        }
+        Console.WriteLine("Press Enter to continue...");
         Console.ReadLine();
+        _dayCount++;
         return gameOver;
     }
 

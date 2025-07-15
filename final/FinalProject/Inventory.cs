@@ -3,9 +3,9 @@ class Inventory
     private List<Item> _inventoryItems = new List<Item>();
     private List<ItemRecipe> _recipes = new List<ItemRecipe>();
     private int _currentMoney;
-    private ItemRecipe luckyCoin = new ItemRecipe("Gold Bar,Leprachauns Bud,Living Wood", "Lucky Coin", 20, "People believe these coins grant them more luck than is reasonable.");
+    private ItemRecipe luckyCoin = new ItemRecipe("Gold Bar,Leprachauns Bud,Living Wood", "Lucky Coin", 25, "People believe these coins grant them more luck than is reasonable.");
     private ItemRecipe gatheringPotion = new ItemRecipe("Fiddle Fern,Toadstool", "Gathering Potion", 10, "This potion increases the swiftness of individuals, allowing them to finish quicker.");
-    private ItemRecipe doublingPotion = new ItemRecipe("Gold Bar,Golden Bloom,Toadstool,Living Wood", "Doubling Potion", 16, "This potion either sells for a lot of money, as people believe it will double their income.");
+    private ItemRecipe doublingPotion = new ItemRecipe("Gold Bar,Golden Bloom,Toadstool,Living Wood", "Doubling Potion", 35, "This potion either sells for a lot of money, as people believe it will double their income.");
     private ItemRecipe regalTonic = new ItemRecipe("Golden Bloom,Toadstool", "Regal Tonic", 10, "This potion allows people to exude the aura of royalty.");
     private ItemRecipe goldBar = new ItemRecipe("Raw Gold,Fire Lichen", "Gold Bar", 8, "This gold bar is used in a lot of crafting recipes.");
     private ItemRecipe ironBar = new ItemRecipe("Raw Iron,Fire Lichen", "Iron Bar", 5, "This iron bar is used in a lot of crafting recipes.");

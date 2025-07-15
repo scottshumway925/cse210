@@ -15,10 +15,9 @@ class ItemRecipe
 
         foreach (string item in items)
         {
-            string trimmedItem = item.Trim();
-            if (!_requirementList.ContainsKey(trimmedItem))
+            if (!_requirementList.ContainsKey(item))
             {
-                _requirementList[trimmedItem] = false;
+                _requirementList[item] = false;
             }
         }
 

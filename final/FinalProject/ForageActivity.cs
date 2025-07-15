@@ -20,15 +20,18 @@ class ForageActivity : Activity
 
         _foragableItems.Add(fiddleFern);
         _foragableItems.Add(leprechaunsBud);
-        _foragableItems.Add(goldenBloom);
-        _foragableItems.Add(rawGold);
-        _foragableItems.Add(livingWood);
-        _foragableItems.Add(livingWood);
+
         for (int i = 0; i < 3; i++)
         {
+            _foragableItems.Add(rawIron);
             _foragableItems.Add(toadStool);
             _foragableItems.Add(flareLichen);
-            _foragableItems.Add(rawIron);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            _foragableItems.Add(livingWood);
+            _foragableItems.Add(goldenBloom);
+            _foragableItems.Add(rawGold);
         }
     }
 
