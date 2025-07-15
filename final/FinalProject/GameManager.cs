@@ -2,8 +2,14 @@ using System.Diagnostics;
 
 class GameManager
 {
-    GameDay _gameDay = new GameDay();
-    Inventory _inventory = new Inventory();
+    private GameDay _gameDay = new GameDay();
+    private Inventory _inventory = new Inventory();
+    private bool _gameOver = false;
+
+    public GameManager()
+    {
+
+    }
 
     public void RunGame()
     {
@@ -12,8 +18,8 @@ class GameManager
             _gameDay.DisplayDayStart();
             while (_gameDay.GetTimeLeftInDay() > 0)
                 RunActivities();
-            _gameDay.StartNextDay();
-        } while (_gameDay.GetRequiredMoney() <= _inventory.GetCurrentMoney());      
+            _gameOver = _gameDay.StartNextDay(_inventory);
+        } while (_gameOver == true);
     }
 
     public void RunActivities()
@@ -29,13 +35,13 @@ class GameManager
         switch (chosenActivity)
         {
             case 1:
-                _activity = new ForageActivity("Forage for Reagents", "Description", 2);
+                _activity = new ForageActivity("Forage for Reagents", "This action allows you to search for 3 reagents.", 2);
                 break;
             case 2:
-                _activity = new SellActitivy("Sell an Item", "Description", 1);
+                _activity = new SellActitivy("Sell an Item", "This action allows you to either sell your reagents or crafted items.", 1);
                 break;
             case 3:
-                _activity = new CraftActivity("Craft an Item", "Description", 2);
+                _activity = new CraftActivity("Craft an Item", "This action allows you to craft new items out of your gathered materials.", 1);
                 break;
             case 4:
                 _activity = null;

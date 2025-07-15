@@ -2,7 +2,7 @@ class GameDay
 {
     private int _timeLeftInDay;
     private int _dayCount;
-    private float _requiredMoney;
+    private int _requiredMoney;
 
     public GameDay()
     {
@@ -21,11 +21,21 @@ class GameDay
         return _requiredMoney;
     }
 
-    public void StartNextDay()
+    public bool StartNextDay(Inventory inventory)
     {
+        bool gameOver = false;
+        if (_requiredMoney <= inventory.GetCurrentMoney())
+        {
+            gameOver = true;
+        }
         _timeLeftInDay = 10;
         _dayCount++;
-        _requiredMoney *= 1.3f;
+        inventory.SubtractFromCurrentMoney(_requiredMoney);
+        float requiredMoneyCalculation = _requiredMoney * 1.3f;
+        _requiredMoney = (int)Math.Round(requiredMoneyCalculation);
+        Console.WriteLine("Press enter to start the next day or exit.");
+        Console.ReadLine();
+        return gameOver;
     }
 
     public void DisplayDayStart()

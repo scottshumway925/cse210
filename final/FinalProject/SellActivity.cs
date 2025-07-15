@@ -21,7 +21,7 @@ class SellActitivy : Activity
                 Console.Write("Please enter a number representing the item you would like to sell: ");
                 int sellIndex = int.Parse(Console.ReadLine()) - 1;
                 inventory.IncreaseMoneyAmount(inventory.GetInventory()[sellIndex].GetSellPrice());
-                Console.WriteLine($"Your {inventory.GetInventory()[sellIndex].GetName()} has been sold for {inventory.GetInventory()[sellIndex].GetSellPrice()}");
+                Console.WriteLine($"Your {inventory.GetInventory()[sellIndex].GetName()} has been sold for {inventory.GetInventory()[sellIndex].GetSellPrice()} gold.");
                 inventory.RemoveItem(sellIndex);
                 gameDay.DecrementTimeInDay(base.GetActionCost());
                 break;

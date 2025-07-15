@@ -1,16 +1,46 @@
 class Inventory
 {
     private List<Item> _inventoryItems = new List<Item>();
+    private List<ItemRecipe> _recipes = new List<ItemRecipe>();
     private int _currentMoney;
+    ItemRecipe luckyCoin = new ItemRecipe("Gold Bar,Leprachauns Bud,Living Wood", "Lucky Coin", 20, "People believe these coins are incredibly valuable, granting more lick than is reasonable.");
+    ItemRecipe gatheringPotion = new ItemRecipe("Fiddle Fern,Toadstool", "Gathering Potion", 10, "This potion increases the swiftness of individuals personal duties, allowing them to finish quicker.");
+    ItemRecipe doublingPotion = new ItemRecipe("Gold Bar,Golden Bloom,Toadstool,Living Wood", "Doubling Potion", 16, "This potion either sells for a lot of money, as people believe it will double their income.");
+    ItemRecipe regalTonic = new ItemRecipe("Golden Bloom,Toadstool", "Regal Tonic", 10, "This potion allows people to exude the aura of royalty. Whether or not it actually does something is yet to be determined.");
+    ItemRecipe goldBar = new ItemRecipe("Raw Gold,Fire Lichen", "Gold Bar", 8, "This gold bar is used in a lot of crafting recipes.");
+    ItemRecipe ironBar = new ItemRecipe("Raw Iron,Fire Lichen", "Iron Bar", 5, "This iron bar is used in a lot of crafting recipes.");
+    ItemRecipe sword = new ItemRecipe("Iron Bar,Living Wood", "Sword", 15, "This is a sharp blade. It doesn't do anything other than sell for a lot.");
+    ItemRecipe encrustedSheild = new ItemRecipe("Iron Bar,Gold Bar,Living Wood", "Encrusted Shield", 30, "This beautiful shield sells for immense amounts of money. It doesn't do anything special though.");
+
+    public Inventory()
+    {
+        _recipes.Add(luckyCoin);
+        _recipes.Add(gatheringPotion);
+        _recipes.Add(doublingPotion);
+        _recipes.Add(goldBar);
+        _recipes.Add(ironBar);
+        _recipes.Add(sword);
+        _recipes.Add(encrustedSheild);
+    }
 
     public int GetCurrentMoney()
     {
         return _currentMoney;
     }
 
+    public void SubtractFromCurrentMoney(int amount)
+    {
+        _currentMoney -= amount;
+    }
+
     public List<Item> GetInventory()
     {
         return _inventoryItems;
+    }
+
+    public List<ItemRecipe> GetRecipeList()
+    {
+        return _recipes;
     }
 
     public void IncreaseMoneyAmount(int amount)
@@ -28,12 +58,33 @@ class Inventory
         _inventoryItems.Remove(_inventoryItems[index]);
     }
 
+    public void DisplayRecipes()
+    {
+        Console.WriteLine("Here are a list of available recipes: ");
+        for (int i = 0; i < _recipes.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {_recipes[i].GetName()} -- {_recipes[i].GetRequirements()}");
+        }
+    }
+
+    public void DisplayNonReagents()
+    {
+        Console.WriteLine("Here is your inventory, filtering out the nonusable items: ");
+        for (int i = 0; i < _inventoryItems.Count(); i++)
+        {
+            if (!_inventoryItems[i].GetIsReagent())
+            {
+                Console.WriteLine($"  {i}. {_inventoryItems[i].GetName()} -- {_inventoryItems[i].GetDescription()}");
+            }
+        }
+    }
+
     public void DisplayContents()
     {
         Console.WriteLine("\nHere is your current inventory:");
         for (int i = 0; i < _inventoryItems.Count(); i++)
         {
-            Console.WriteLine($"{i + 1}. " + _inventoryItems[i].GetName());
+            Console.WriteLine($"  {i + 1}. {_inventoryItems[i].GetName()} -- {_inventoryItems[i].GetDescription()}");
         }
     }
 
@@ -45,4 +96,6 @@ class Inventory
             Console.WriteLine($"{i + 1}. " + _inventoryItems[i].GetName() + " Sell Price -- " + _inventoryItems[i].GetSellPrice());
         }
     }
+
+
 }

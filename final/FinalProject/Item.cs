@@ -1,14 +1,13 @@
-abstract class Item
+class Item
 {
     private string _itemName;
     private string _description;
     private int _sellPrice;
-    private int _useTimeCost;
     private bool _isReagent;
 
     public Item()
     {
-        
+
     }
 
     public Item(string name, string description, int sellPrice, int useTimeCost, bool isReagent = true)
@@ -16,7 +15,17 @@ abstract class Item
         _itemName = name;
         _description = description;
         _sellPrice = sellPrice;
-        _useTimeCost = useTimeCost;
+        _isReagent = isReagent;
+    }
+
+    public bool GetIsReagent()
+    {
+        return _isReagent;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
     }
 
     public string GetName()
@@ -34,15 +43,8 @@ abstract class Item
         return 0;
     }
 
-    public abstract void UseItem();
-
     public int SellItem()
     {
         return 0;
-    }
-
-    public void DispayItem()
-    {
-        
     }
 }
