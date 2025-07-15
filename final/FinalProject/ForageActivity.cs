@@ -12,9 +12,9 @@ class ForageActivity : Activity
         Item livingWood = new Item("Living Wood", "Living Wood is a magical wood used to make weapons and armor that contain magical properties.", 2, 0);
         Item rawGold = new Item("Raw Gold", "Raw gold is a very valuable metal, creating the most expensive of items.", 4, 0);
         Item rawIron = new Item("Raw Iron", "Being a very versatile material, iron is used to create hardy weapons and armor of valor.", 2, 0);
-        Item fiddleFern = new Item("Fiddle Fern", "This is a beautful green fern that grows at the base of mountainous terrain. It contains healing properties.", 2, 0);
-        Item leprechaunsBud = new Item("Leprachauns Bud", "This is a green budding plant that has golden accents. It is said to contain immense amounts of luck.", 2, 0);
-        Item goldenBloom = new Item("Golden Bloom", "This beautiful flower is gold and purple, showing only the most regal of colors. It is said to boost one's charisma.", 2, 0);
+        Item fiddleFern = new Item("Fiddle Fern", "This is a beautful green fern that grows at the base of mountainous terrain.", 2, 0);
+        Item leprechaunsBud = new Item("Leprachauns Bud", "This green and gold plant is said to contain immense amounts of luck.", 2, 0);
+        Item goldenBloom = new Item("Golden Bloom", "This beautiful flower is gold and purple,. It is said to boost one's charisma.", 2, 0);
         Item toadStool = new Item("Toadstool", "This simple mushroom is the basis of all magical potions.", 1, 0);
         Item flareLichen = new Item("Fire Lichen", "This common plant can be used to create bars out of metal materials.", 1, 0);
 

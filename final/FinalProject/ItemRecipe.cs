@@ -6,7 +6,6 @@ class ItemRecipe
     private Dictionary<string, bool> _requirementList = new Dictionary<string, bool>();
     private string _name;
     private int _sellAmount;
-    private bool _isConsumable;
     private string _description;
 
 
@@ -36,11 +35,6 @@ class ItemRecipe
     public string GetName()
     {
         return _name;
-    }
-
-    public bool GetIsConsumable()
-    {
-        return _isConsumable;
     }
 
     public string GetDefinition()

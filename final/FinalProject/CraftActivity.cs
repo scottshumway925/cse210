@@ -21,30 +21,29 @@ class CraftActivity : Activity
                 inventory.DisplayContents();
                 Console.WriteLine("\nHere are the available crafting recipes");
                 inventory.DisplayRecipes();
-                Console.WriteLine("Please enter the number you would like to craft!");
+                Console.WriteLine("\nPlease enter the number you would like to craft!");
                 try
                 {
                     int craftNumber = int.Parse(Console.ReadLine()) - 1;
                     ItemRecipe chosenItem = inventory.GetRecipeList()[craftNumber];
                     if (chosenItem.CheckForRequirements(inventory))
                     {
-                        if (!chosenItem.GetIsConsumable())
-                        {
-                            inventory.AddItem(new Item(chosenItem.GetName(), chosenItem.GetDefinition(), chosenItem.GetSellAmount(), 1));
-                        }
-                        else
-                        {
-                            inventory.AddItem(new Item(chosenItem.GetName(), chosenItem.GetDefinition(), chosenItem.GetSellAmount(), 1));
-                        }
+                        inventory.AddItem(new Item(chosenItem.GetName(), chosenItem.GetDefinition(), chosenItem.GetSellAmount(), 1));
                         gameDay.DecrementTimeInDay(base.GetActionCost());
-                    } else {
+                        Console.WriteLine($"You have successfully crafted a {chosenItem.GetName()}.\nPress enter to continue: ");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
                         Console.WriteLine("You do not meet the requirements to craft that item. Please try again with an item you can craft");
                         Console.Write("Press enter to continue");
                         Console.ReadLine();
-                    }                    
-                } catch
+                    }
+                }
+                catch
                 {
-                    Console.WriteLine("That was not a valid number. Please try again with a valid input.");
+                    Console.WriteLine("That was not a valid number. Please try again with a valid input.\nPress enter to continue.");
+                    Console.ReadLine();
                 }
                 break;
             default:
